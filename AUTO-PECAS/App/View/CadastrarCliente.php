@@ -45,18 +45,18 @@ if (isset($_POST['cadastrar'])) {
             display: block;
             margin: 10px auto;
             padding: 10px;
-            font-size: 16px;
+            font-size: 20px;
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color:rgb(90, 173, 211);
             color: white;
             border: none;
             cursor: pointer;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: rgb(90, 173, 211);
         }
     </style>
 </head>
@@ -65,7 +65,7 @@ if (isset($_POST['cadastrar'])) {
 
     <form method="POST">
         <input type="text" name="nome" placeholder="Nome do Cliente" required>
-        <input type="text" name="cpf" placeholder="CPF" required>
+        <input type="text" name="cpf" placeholder="CPF sem pontos e traços" required>
         <input type="email" name="email" placeholder="E-mail" required>
         <input type="submit" name="cadastrar" value="Cadastrar">
     </form>

@@ -12,6 +12,27 @@ $clientes = $controller->listar();
     <title>Lista de Clientes</title>
 </head>
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table{
+            justify-content: center;
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: 800;
+        }
+
+    </style>
     <h1>Clientes Cadastrados</h1>
     <table border="1">
         <tr>
@@ -28,8 +49,8 @@ $clientes = $controller->listar();
                 <td><?php echo $cliente['cpf']; ?></td>
                 <td><?php echo $cliente['email']; ?></td>
                 <td>
-                    <a href="../Controller/ClienteController/editar?id=<?php echo $cliente['id']; ?>">Editar</a>
-                    <a href="../Controller/ClienteController.php/excluir?id=<?php echo $cliente['id']; ?>">Excluir</a>
+                    <a href="../View/EditarCliente.php?id=<?php echo $cliente['id']; ?>">Editar</a>
+                    <a href="../Controller/ClienteController.php?acao=excluir&id=<?php echo $cliente['id']; ?>">Excluir</a>
                 </td>
             </tr>
         <?php endforeach; ?>
