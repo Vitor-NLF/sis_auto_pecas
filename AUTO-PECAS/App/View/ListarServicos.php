@@ -41,22 +41,29 @@ $servicos = $controller->listar();
         <h1>Lista de serviços</h1>
         <table border="1">
             <tr>
+                <th>ID do Serviço</th>
                 <th>Cliente</th>
                 <th>Serviço</th>
                 <th>Descrição</th>
+                <th>Duração (dias)</th>
+                <th>Valor do Serviço</th>
                 <th>Ações</th>
             </tr>
             <?php foreach($servicos as $servico): ?>
                 <tr>
+                    <td><?php echo $servico['Id']; ?></td>
                     <td><?php echo $servico['Cliente']; ?></td>
                     <td><?php echo $servico['Servico']; ?></td>
                     <td><?php echo $servico['Sobre']; ?></td>
+                    <td><?php echo $servico['Duracao']; ?></td>
+                    <td><?php echo $servico['Valor']; ?></td>
                     <td>
-                        <a href="../View/EditarProduto.php?id=<?php echo $produto['id']; ?>" class="editar" >Editar</a>
-                        <a href="../Controller/ProdutoController.php?acao=excluir&id=<?php echo $produto['id']; ?>" class="excluir">Excluir</a>
+                        <!-- <a href="../View/EditarProduto.php?id=<?php echo $servico['id']; ?>" class="editar" >Editar</a> -->
+                        <a href="../Controller/ServicoController.php?acao=excluir&id=<?php echo $servico['Id']; ?>" class="excluir">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+        <p>Deseja cadastrar mais serviços clique <a href="./CadastrarServico.php">aqui</a></p>
 </body>
 </html>

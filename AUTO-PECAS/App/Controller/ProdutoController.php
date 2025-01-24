@@ -38,7 +38,6 @@ class ProdutoController{
 
     public function excluir($id){
         return $this->model->delete($id);
-        header("Location: ../View/ListarProdutos.php");
         exit();
     }
 
@@ -48,6 +47,7 @@ class ProdutoController{
 
 }
 
+
 if (isset($_GET['acao'])) {
     $acao = $_GET['acao'];
     $produtoController = new ProdutoController();
@@ -55,6 +55,7 @@ if (isset($_GET['acao'])) {
     if ($acao == 'excluir' && isset($_GET['id'])) {
         $id = $_GET['id'];
         $produtoController->excluir($id);
+        header("Location: ../View/ListarProdutos.php");
         echo "<script>excluido com sucesso!! </script>" ;
     }
 }

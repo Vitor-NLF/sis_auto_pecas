@@ -42,7 +42,7 @@ class ClienteController {
     public function excluir($id) {
         $this->model->delete($id);
         header("Location: ../View/ListarClientes.php");
-        exit();
+        exit(); 
         
     }
 }

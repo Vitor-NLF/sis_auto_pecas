@@ -36,9 +36,13 @@
                 </a>
             </div>
             <div class="area_botao">
+                <a href="./App/View/CadastrarServico.php" class="botao">
+                    Cadastrar Serviços
+                </a>
                 <a href="./App/View/ListarServicos.php" class="botao">
                     Lista de Serviços
                 </a>
+                
             </div>
         </div>        
     </div>

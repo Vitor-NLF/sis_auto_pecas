@@ -15,6 +15,15 @@ class Cliente {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function selectForrelation(){
+        $query = "SELECT servicos.id_cliente as Id, clientes.nome as Nome, clientes.cpf as CPF, clientes.email as Email
+        FROM servicos JOIN clientes ON servicos.id_cliente = clientes.id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->exxecute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function searchForID($id){
         $query = "SELECT * FROM clientes WHERE id = :id";
         $stmt = $this->conn->prepare($query);
@@ -33,7 +42,6 @@ class Cliente {
         return $stmt->execute();
     }
     
-
     public function insert($nome, $cpf, $email){
         $query = "INSERT INTO clientes (nome, cpf, email) VALUES (:nome, :cpf, :email)";
         $stmt = $this->conn->prepare($query);

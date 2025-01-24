@@ -47,6 +47,7 @@ $produtos = $controller->listar();
             <th>Descrição</th>
             <th>Estoque</th>
             <th>Preço</th>
+            <th>Ações</th>
         </tr>
         <?php foreach($produtos as $produto): ?>
             <tr>
