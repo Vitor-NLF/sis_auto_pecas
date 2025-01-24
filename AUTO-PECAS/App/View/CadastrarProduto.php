@@ -1,22 +1,21 @@
 <?php
-require_once '../Controller/ClienteController.php';
+require_once "../Controller/ProdutoController.php";
 
-// Verifica se o formulário foi enviado
-if (isset($_POST['cadastrar'])) {
+if(isset($_POST['cadastrar'])){
     $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $email = $_POST['email'];
+    $descricao = $_POST['descricao'];
+    $estoque = $_POST['estoque'];
+    $preco = $_POST['preco'];
 
-    $controller = new ClienteController();
-    $resultado = $controller->cadastrar($nome, $cpf, $email);
+    $controller = new ProdutoController();
+    $resultado = $controller->cadastrar($nome, $descricao, $estoque, $preco);
 
-    if ($resultado) {
-        echo '<script>alert("Cliente cadastrado com sucesso!");</script>';
-        // echo "<meta http-equiv='refresh' content='0.5;url=listar_clientes.php'>";
-    } else {
-        echo '<script>alert("Erro ao cadastrar cliente! Tente novamente.");</script>';
+    if($resultado){
+        echo '<script>alert("Cadastrado!!");</script>';
+    }else{
+        echo '<script>alert("Erro ao cadastrar!!");</script>';
     }
-}
+};
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ if (isset($_POST['cadastrar'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Cliente</title>
+    <title>Cadastrar Produtos e peças</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,7 +39,7 @@ if (isset($_POST['cadastrar'])) {
             background-color: #f9f9f9;
         }
 
-        input[type="text"], input[type="email"], input[type="submit"] {
+        input[type="text"], input[type="number"], input[type="text"] input[type="submit"] {
             display: block;
             margin: 10px auto;
             padding: 10px;
@@ -65,14 +64,14 @@ if (isset($_POST['cadastrar'])) {
 </head>
 <body>
 <p class="voltar-inicio">Voltar ao <a href="../../index.php">inicio</a></p>
-    <h1>Cadastrar Cliente</h1>
-
-    <form method="POST">
-        <input type="text" name="nome" placeholder="Nome do Cliente" required>
-        <input type="text" name="cpf" placeholder="CPF sem pontos e traços" required>
-        <input type="email" name="email" placeholder="E-mail" required>
+    <h1>Cadastro de produtos e peças</h1>
+    <form method ="POST">
+        <input type="text" name="nome" placeholder="insira o nome" required>
+        <input type="text" name="descricao" placeholder="insira a descricao" required>
+        <input type="number" name="estoque" placeholder="insira o estoque" required>
+        <input type="text" name="preco" placeholder="insira o valor" required>
         <input type="submit" name="cadastrar" value="Cadastrar">
     </form>
-    <p>Deseja listar os Clientes já cadastrados clique <a href="./ListarClientes.php">aqui</a></p>
+    <p>Deseja listar os Produtos e peças já cadastrados clique <a href="./ListarProdutos.php">aqui</a></p>
 </body>
 </html>

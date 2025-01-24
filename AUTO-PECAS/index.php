@@ -20,20 +20,27 @@
         <p> O que vc deseja?</p>
         <div class="area_escolha">
             <div class="area_botao">
-                <button>Cadastrar_Produto ou Peças</button>
-                <button>Listar_Produtos ou Peças</button>
+                <a href="./App/View/CadastrarCliente.php" class="botao">
+                    Cadastrar Clientes
+                </a>
+                <a href="./App/View/ListarClientes.php" class="botao">
+                    Listar, editar ou excluir Clientes
+                </a>
             </div>
             <div class="area_botao">
-                <a href="./App/View/CadastrarCliente.php">
-                    <button>Cadastrar_Clientes</button>
+                <a href="./App/View/CadastrarProduto.php" class="botao">
+                    Cadastrar Produtos e peças
                 </a>
-               <a href="./App/View/ListarClientes.php">
-                    <button>Listar_Clientes</button>
-               </a>
-              
+                <a href="./App/View/ListarProdutos.php" class="botao">
+                Listar, editar ou excluir Produtos e peças
+                </a>
             </div>
-            <link rel="stylesheet" href="">
-        </div>
+            <div class="area_botao">
+                <a href="./App/View/ListarServicos.php" class="botao">
+                    Lista de Serviços
+                </a>
+            </div>
+        </div>        
     </div>
 </body>
 </html>

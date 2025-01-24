@@ -1,15 +1,15 @@
 <?php
-require_once '../Controller/ClienteController.php';
+require_once '../Controller/ProdutoController.php';
 
-$controller = new ClienteController();
-$clientes = $controller->listar();
+$controller = new ProdutoController();
+$produtos = $controller->listar();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Clientes</title>
+    <title>Lista de Produtos e peças</title>
 </head>
 <body>
     <style>
@@ -39,29 +39,30 @@ $clientes = $controller->listar();
 
     </style>
     <p class="voltar-inicio">Voltar ao <a href="../../index.php">inicio</a></p>
-    <h1>Clientes Cadastrados</h1>
+    <h1>Produtos e peças Cadastradas</h1>
     <table border="1">
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>CPF</th>
-            <th>Email</th>
-            <th>Ações</th>
+            <th>Descrição</th>
+            <th>Estoque</th>
+            <th>Preço</th>
         </tr>
-        <?php foreach($clientes as $cliente): ?>
+        <?php foreach($produtos as $produto): ?>
             <tr>
-                <td><?php echo $cliente['id']; ?></td>
-                <td><?php echo $cliente['nome']; ?></td>
-                <td><?php echo $cliente['cpf']; ?></td>
-                <td><?php echo $cliente['email']; ?></td>
+                <td><?php echo $produto['id']; ?></td>
+                <td><?php echo $produto['nome']; ?></td>
+                <td><?php echo $produto['descricao']; ?></td>
+                <td><?php echo $produto['estoque']; ?></td>
+                <td><?php echo $produto['preco']; ?></td>
                 <td>
-                    <a href="../View/EditarCliente.php?id=<?php echo $cliente['id']; ?>" class="editar" >Editar</a>
-                    <a href="../Controller/ClienteController.php?acao=excluir&id=<?php echo $cliente['id']; ?>" class="excluir">Excluir</a>
+                    <a href="../View/EditarProduto.php?id=<?php echo $produto['id']; ?>" class="editar" >Editar</a>
+                    <a href="../Controller/ProdutoController.php?acao=excluir&id=<?php echo $produto['id']; ?>" class="excluir">Excluir</a>
                 </td>
             </tr>
             
         <?php endforeach; ?>
     </table>
-    <p>Você deseja cadastrar outro? clique <a href="./CadastrarCliente.php">aqui</a></p>
+    <p>Você deseja cadastrar outro? clique <a href="./CadastrarProduto.php">aqui</a></p>
 </body>
 </html>

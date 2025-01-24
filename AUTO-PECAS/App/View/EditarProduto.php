@@ -1,38 +1,40 @@
 <?php
-require_once '../Controller/ClienteController.php';
+require_once '../Controller/ProdutoController.php';
 
 $id_recebido = ($_GET['id']);
 
 if (!isset($id_recebido) or !is_numeric($id_recebido)) {
-    header('location: listatClientes.php');
+    header('location: ListarProdutos.php');
     exit;
 }
 
-$novo_cliente = new ClienteController();
-$cliente = $novo_cliente->buscar_por_id($id_recebido);
+$novo_produto = new ProdutoController();
+$produto = $novo_produto->buscar_por_id($id_recebido);
 
 
-$nome = $cliente->nome;
-$cpf = $cliente->cpf;
-$email = $cliente->email;
+$nome = $produto->nome;
+$descricao = $produto->descricao;
+$estoque = $produto->estoque;
+$preco = $produto->preco;
 
 // Exibe as informações (apenas um exemplo, você pode usar essas variáveis como quiser)
 
 
 if (isset($_POST['editar'])) {
     $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $email = $_POST['email'];
+    $descricao = $_POST['descricao'];
+    $estoque = $_POST['estoque'];
+    $preco = $_POST['preco'];
 
-    $cliente = new ClienteController();
-    $result = $cliente->atualizar($id_recebido, $nome, $cpf, $email);
+    $produto = new ProdutoController();
+    $result = $produto->atualizar($id_recebido, $nome, $descricao, $estoque, $preco);
 
     if ($result) {
-        echo "Cliente atualizado com sucesso!";
-        header('Location: ./listarClientes.php'); // Redireciona após atualizar
+        echo "Atualizado com sucesso!";
+        header('Location: ./ListarProdutos.php'); // Redireciona após atualizar
         exit();
     } else {
-        echo "Erro ao atualizar o cliente.";
+        echo "Erro ao atualizar.";
     }
 }
 
@@ -42,7 +44,7 @@ if (isset($_POST['editar'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Produtos e peças</title>
 </head>
 <body>
     <style>
@@ -90,9 +92,10 @@ if (isset($_POST['editar'])) {
 
     <form method="POST">
         <h1 class="title">Edite abaixo os novos dados</h1>
-        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>"placeholder="">
-        <input name= "cpf" id= "cpf" type="text" value ="<?php echo $cpf ?>" placeholder="">
-        <input name= "email" id= "email" type="email" value ="<?php echo $email ?>" placeholder="">
+        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>" placeholder="">
+        <input name= "descricao" id= "descricao" type="text" value ="<?php echo $descricao ?>" placeholder="">
+        <input name= "estoque" id= "estoque" type="number" value ="<?php echo $estoque ?>" placeholder="">
+        <input name= "preco" id= "preco" type="text" value = "<?php echo $preco ?>" placeholder="">
         <input name="editar" type="Submit" value ="Editar">
     </form>
 </body>
