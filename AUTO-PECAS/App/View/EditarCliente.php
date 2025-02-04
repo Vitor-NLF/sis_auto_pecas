@@ -84,15 +84,24 @@ if (isset($_POST['editar'])) {
         .title{
             font-size: 16px;
         }
+        .voltar-inicio button{
+            cursor: pointer;
+            width: 50px;
+            height: 20px;
+        }
     </style>
-    <p class="voltar-inicio">Voltar ao <a href="../../index.php">inicio</a></p>
+        <div class="voltar-inicio">
+            <a href="../../index.php">
+                <button>Voltar</button>
+            </a>
+        </div>
     <h1>Editar Cadastro</h1>
 
     <form method="POST">
         <h1 class="title">Edite abaixo os novos dados</h1>
-        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>"placeholder="">
-        <input name= "cpf" id= "cpf" type="text" value ="<?php echo $cpf ?>" placeholder="">
-        <input name= "email" id= "email" type="email" value ="<?php echo $email ?>" placeholder="">
+        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>"placeholder="novo nome">
+        <input name= "cpf" id= "cpf" type="text" value ="<?php echo $cpf ?>" placeholder="novo cpf">
+        <input name= "email" id= "email" type="email" value ="<?php echo $email ?>" placeholder="novo email">
         <input name="editar" type="Submit" value ="Editar">
     </form>
 </body>

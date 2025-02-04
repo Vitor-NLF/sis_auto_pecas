@@ -86,16 +86,25 @@ if (isset($_POST['editar'])) {
         .title{
             font-size: 16px;
         }
+        .voltar-inicio button{
+            cursor: pointer;
+            width: 50px;
+            height: 20px;
+        }
     </style>
-    <p class="voltar-inicio">Voltar ao <a href="../../index.php">inicio</a></p>
-    <h1>Editar Cadastro</h1>
+        <div class="voltar-inicio">
+            <a href="../../index.php">
+                <button>Voltar</button>
+            </a>
+        </div>
+    <h1>Editar Produto</h1>
 
     <form method="POST">
         <h1 class="title">Edite abaixo os novos dados</h1>
-        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>" placeholder="">
-        <input name= "descricao" id= "descricao" type="text" value ="<?php echo $descricao ?>" placeholder="">
-        <input name= "estoque" id= "estoque" type="number" value ="<?php echo $estoque ?>" placeholder="">
-        <input name= "preco" id= "preco" type="text" value = "<?php echo $preco ?>" placeholder="">
+        <input name= "nome" id= "nome" type="text" value ="<?php echo $nome ?>" placeholder="novo nome">
+        <input name= "descricao" id= "descricao" type="text" value ="<?php echo $descricao ?>" placeholder="nova descrição">
+        <input name= "estoque" id= "estoque" type="number" value ="<?php echo $estoque ?>" placeholder="novo estoque">
+        <input name= "preco" id= "preco" type="text" value = "<?php echo $preco ?>" placeholder="novo preço">
         <input name="editar" type="Submit" value ="Editar">
     </form>
 </body>

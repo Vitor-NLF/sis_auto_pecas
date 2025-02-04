@@ -17,10 +17,11 @@ class Cliente {
     }
 
     public function selectForrelation(){
-        $query = "SELECT servicos.id_cliente as Id, clientes.nome as Nome, clientes.cpf as CPF, clientes.email as Email
+        $query = "SELECT servicos.id_cliente as Id, clientes.nome as Nome, clientes.cpf as CPF, clientes.email as Email,
+        servicos.titulo_serv AS Servico
         FROM servicos JOIN clientes ON servicos.id_cliente = clientes.id";
         $stmt = $this->conn->prepare($query);
-        $stmt->exxecute();
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

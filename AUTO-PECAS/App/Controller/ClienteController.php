@@ -24,6 +24,10 @@ class ClienteController {
         return $this->model->select();
     }
 
+    public function listarrelacionados(){
+        return $this->model->selectForrelation();
+    }
+
     
     public static function buscar_por_id($id) {
         $cliente = new Cliente();

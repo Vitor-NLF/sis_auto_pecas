@@ -32,38 +32,61 @@ if(isset($_POST['cadastrar'])){
         }
 
         form {
-            display: inline-block;
-            border: 1px solid #ccc;
+            width: 300px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
             background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-        input[type="text"], input[type="number"], input[type="text"] input[type="submit"] {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            font-size: 20px;
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;  
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
         }
 
         input[type="submit"] {
-            background-color:rgb(90, 173, 211);
+            background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
-            width: 80px;
-            height: 40px;
-            border-radius: 10px;
-            font-size: 12px;
+            font-size: 18px;
         }
 
         input[type="submit"]:hover {
-            background-color: rgb(90, 173, 211);
-        }   
+            background-color: #45a049;
+        }
+
+        input[type="submit"]:active {
+            background-color: #3e8e41;
+        }
+        .voltar-inicio{
+            display: flex;
+            align-items: center;
+        }
+        .voltar-inicio button{
+            cursor: pointer;
+            width: 50px;
+            height: 20px;
+        }
     </style>
 </head>
 <body>
-<p class="voltar-inicio">Voltar ao <a href="../../index.php">inicio</a></p>
+    <div class="voltar-inicio">
+        <a href="../../index.php">
+            <button>Voltar</button>
+        </a>
+    </div>
     <h1>Cadastro de produtos e peças</h1>
     <form method ="POST">
         <input type="text" name="nome" placeholder="insira o nome" required>

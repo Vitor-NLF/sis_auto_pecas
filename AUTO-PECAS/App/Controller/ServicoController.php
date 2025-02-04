@@ -26,15 +26,25 @@ class ServicoController{
         return $this->model->select();
     }
 
-    public function cadastrar($titulo_serv, $id_cliente, $descricao, $duracao_dias, $valor_serv){
-        return $this->model->insert($titulo_serv, $id_cliente, $descricao, $duracao_dias, $valor_serv);
+    public function buscar_por_id($id){
+        $servico = new Servico();
+        return $servico->searchForID($id);
+    }
+
+    public function cadastrar($titulo_serv, $id_cliente, $descricao, $data_inicio, $data_fim, $valor_serv, $id_produto){
+        return $this->model->insert($titulo_serv, $id_cliente, $descricao, $data_inicio, $data_fim, $valor_serv, $id_produto);
     }
 
     public function excluir($id){
         return $this->model->delete($id);
     }
 
+    public function atualizar($id, $titulo_serv, $id_cliente, $descricao, $data_inicio, $data_fim, $valor_serv, $id_produto){
+        return $this->model->update($id, $titulo_serv, $id_cliente, $descricao, $data_inicio, $data_fim, $valor_serv, $id_produto);
+    }
+
 }
+
 if (isset($_GET['acao'])){
     $acao = $_GET['acao'];
     $servicoController = new ServicoController();

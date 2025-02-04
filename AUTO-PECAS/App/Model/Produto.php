@@ -10,21 +10,21 @@ class Produto{
         $this->conn = $database->getConnection();
     }
 
+    public function select(){
+        $query = "SELECT * FROM produtos";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();   
+        return $stmt->FetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function insert($nome, $descricao, $estoque, $preco){
         $query = "INSERT INTO produtos (nome, descricao, estoque, preco) VALUES(:nome, :descricao, :estoque, :preco)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":descricao", $descricao);
         $stmt->bindParam(":estoque", $preco);
-        $stmt->bindParam("preco", $preco);
+        $stmt->bindParam(":preco", $preco);
         return $stmt->execute();
-    }
-
-    public function select(){
-        $query = "SELECT * FROM produtos";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt->FetchAll(PDO::FETCH_ASSOC);
     }
 
     public function searchForID($id){
