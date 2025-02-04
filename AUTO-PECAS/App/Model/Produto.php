@@ -22,7 +22,7 @@ class Produto{
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":descricao", $descricao);
-        $stmt->bindParam(":estoque", $preco);
+        $stmt->bindParam(":estoque", $estoque);
         $stmt->bindParam(":preco", $preco);
         return $stmt->execute();
     }
